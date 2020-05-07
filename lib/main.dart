@@ -5,8 +5,12 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-       
+    return MaterialApp(
+       title: 'my lil app',
+       home:Scaffold(
+         appBar:AppBar(title:Text("hey app")),
+         body:Center(child:Text("hello world!")),
+       )
     );
   }
 }
