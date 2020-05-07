@@ -21,7 +21,23 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(title:Text("my lil app")),
-      body:Center(child:Text("hello world!"))
+      body:Center(
+        child: ListView(
+          children: <Widget>[
+            Text(
+              "Smiley face!",
+              textAlign:TextAlign.center,
+              style:TextStyle(
+                fontWeight:FontWeight.bold,
+                color:Colors.black,
+                fontSize:28.0
+              ),
+            ),
+            Image.asset("assets/img/smiley.png"),
+            Icon(Icons.android)     
+          ],
+        ),
+      ),
     );
   }
 }
