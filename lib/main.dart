@@ -17,16 +17,37 @@ class HomeScreen extends StatelessWidget {
   final String title;      //stateless widgets are immutable thus all the data should be final 
   HomeScreen({Key key,this.title}):super(key: key);
 
+  void _talkAndroid(BuildContext context){
+    showDialog(context: context,builder: (BuildContext context) {
+      return AlertDialog(
+         title:  Text("Message"), 
+         content:  Text("Hello this is Mr. Android"), 
+         actions: <Widget>[
+                   FlatButton(
+                     child:  Text("Close"), 
+                     onPressed: () {   
+                        Navigator.of(context).pop();  
+                     }, 
+                   ), 
+         ],
+      );
+    }); 
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(title:Text("my lil app")),
       body:Center(
         child: ListView(
+          scrollDirection: Axis.vertical,
           children: <Widget>[
             MyTitle(),
             Image.asset("assets/img/smiley.png"),
-            Icon(Icons.android),
+            GestureDetector(
+              onTap: (){_talkAndroid(context);},
+              child: Icon(Icons.android,color:Colors.green)),
             MyContainers()   
           ],
         ),
